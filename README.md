@@ -1,6 +1,6 @@
 # efront-downloader Front-End
 
-A front-end for [efront-downloader](https://github.com/tomymolina/efront-downloader Link to the repository)
+A front-end for [efront-downloader](https://github.com/tomymolina/efront-downloader)
 ## Installation
 
 * `npm install --global typescript tsd webpack nodemon`
