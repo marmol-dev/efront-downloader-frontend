@@ -1,4 +1,4 @@
-# Classter Download Front-End
+# efront-downloader Front-End
 A front-end for [https://github.com/tomymolina/efront-downloader](efront-downloader)
 
 ## Installation
