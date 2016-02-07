@@ -37,7 +37,8 @@ var client = {
       { from: 'node_modules/es6-shim/', to: 'node_modules/es6-shim/' },
       { from: 'node_modules/es6-promise/', to: 'node_modules/es6-promise/' },
       { from: 'node_modules/reflect-metadata/', to: 'node_modules/reflect-metadata/' },
-      { from: 'node_modules/zone.js/', to: 'node_modules/zone.js/' }
+      { from: 'node_modules/zone.js/', to: 'node_modules/zone.js/' },
+      { from: 'node_modules/bootstrap/', to: 'node_modules/bootstrap/' }
     ], {
       ignore: ['*.ts']
     })

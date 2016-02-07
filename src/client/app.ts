@@ -20,18 +20,18 @@ export class XLarge {
 @Injectable()
 class Api {
   constructor(private http: Http) {}
-  
+
   getPDFUrl(query : AppQuery) {
     const endpoint = '/download';
     let searchparams = new URLSearchParams();
-    
+
     searchparams.set('startUnit', query.startUnit.toString());
     searchparams.set('endUnit', query.endUnit.toString());
     searchparams.set('lesson', query.lesson.toString());
     searchparams.set('url', query.url);
     searchparams.set('username', query.username);
     searchparams.set('password', query.password);
-    
+
     return this.http
       .get(endpoint, {search: searchparams})
       .map(res => res.json());
@@ -51,7 +51,7 @@ export class Home {
   public lesson: number = null;
   public startUnit: number = null;
   public endUnit: number = null;
-  
+
   private submited: boolean = false;
   public downloadUrl : string = null;
   public errorMessage : string = null;
@@ -63,12 +63,12 @@ export class Home {
   onSubmit($event: Event) {
     $event.preventDefault();
     if (this.submited) return;
-    
+
     this.submited = true;
-    
+
     //Reset context
     this.downloadUrl = this.errorMessage = null;
-    
+
     let myResponse : OperationResponse;
     this.api.getPDFUrl({
         url: this.url,
@@ -111,11 +111,7 @@ export class About {
   selector: 'app',
   directives: [ ...ROUTER_DIRECTIVES, XLarge ],
   template: `
-  <div>
-    <nav>
-      <a [routerLink]=" ['./Home'] ">Home</a>
-      <a [routerLink]=" ['./About'] ">About</a>
-    </nav>
+  <div class="container">
     <main>
       <router-outlet></router-outlet>
     </main>
