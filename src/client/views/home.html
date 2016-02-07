@@ -1,0 +1,42 @@
+<div>
+  <form (submit)="onSubmit($event)">
+    <div class="form-group">
+      <input type="text" name="url" placeholder="Platform url"
+        [value]="url" (input)="url = $event.target.value" required/>
+    </div>
+    <div class="form-group">
+      <input type="text" name="username" placeholder="Username"
+        [value]="username" (input)="username = $event.target.value" required />
+    </div>
+    <div class="form-group">
+      <input type="text" name="password" placeholder="Password"
+        [value]="password" (input)="password = $event.target.value" required/>
+    </div>
+    <div class="form-group">
+      <input type="number" name="lesson" placeholder="Lesson"
+        [value]="lesson" (input)="lesson = $event.target.value" required/>
+    </div>
+    <div class="form-group">
+      <input type="number" name="start-unit" placeholder="Start unit"
+        [value]="startUnit" (input)="startUnit = $event.target.value" required/>
+    </div>
+    <div class="form-group">
+      <input type="number" name="end-unit" placeholder="End unit"
+        [value]="endUnit" (input)="endUnit = $event.target.value" required/>
+    </div>
+    <div class="form-group">
+      <button type="submit">
+        Submit
+      </button>
+    </div>
+    <div class="form-group" *ngIf="submited">
+      Loading
+    </div>
+    <div *ngIf="errorMessage" class="text-danger">
+      {{errorMessage}}
+    </div>
+    <div *ngIf="downloadUrl" class="text-success">
+      <a href="{{downloadUrl}}">Download</a>
+    </div>
+  </form>
+</div>

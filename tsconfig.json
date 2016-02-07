@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "module": "commonjs",
+    "removeComments": true,
+    "sourceMap": true
+  },
+  "filesGlob": [
+    "typings/main.d.ts",
+    "src/**/*.ts",
+    "src/**/*.ts",
+    "node_modules/efront-downloader/*.d.ts"
+  ],
+  "compileOnSave": false,
+  "atom": {
+    "rewriteTsconfig": true
+  },
+  "files": [
+    "typings/main.d.ts",
+    "src/client/app.ts",
+    "src/client/client.ts",
+    "src/common/app-query.ts",
+    "src/common/operation-response.ts",
+    "src/server/server.ts",
+    "node_modules/efront-downloader/efront-downloader.d.ts"
+  ]
+}
