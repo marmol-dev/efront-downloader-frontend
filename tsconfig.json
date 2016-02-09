@@ -22,7 +22,9 @@
     "src/client/app.ts",
     "src/client/client.ts",
     "src/common/app-query.ts",
+    "src/common/base64.ts",
     "src/common/operation-response.ts",
+    "src/server/delay.ts",
     "src/server/server.ts",
     "node_modules/efront-downloader/efront-downloader.d.ts"
   ]

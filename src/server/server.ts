@@ -3,6 +3,9 @@ import * as express from 'express';
 import {OperationError, OperationSuccess} from '../common/operation-response';
 import {AppQuery} from '../common/app-query';
 import EfrontDownloader from 'efront-downloader/app/modules/app';
+import Base64 from '../common/base64';
+import Delay from './delay';
+import * as fs from 'fs';
 
 let app = express();
 let root = path.join(path.resolve(__dirname, '../..'));
@@ -47,17 +50,28 @@ app.get('/download', (req, res) => {
       url: 'string'
     });
   } catch (e){
-    return res.status(400).json(new OperationError(e.message));
+    return res.status(400).json({error: e.message});
   }
 
   let down = new EfrontDownloader(query.url, query.username, query.password,
-    query.lesson, query.startUnit, query.endUnit, path.resolve(path.join(root, 'static')));
+    query.lesson, query.startUnit, query.endUnit, path.resolve(
+      path.join(root, 'static')
+    ), Math.floor(Math.random() * 9e9).toString() + '-' + query.startUnit + '-' + query.endUnit);
   down.run().then(p => {
     console.log('Finish');
-    res.json({success:{
+
+    //Remove the file after 1 hour
+    Delay.action(60 * 60* 1000, () => {
+       fs.unlink(p);
+    });
+
+    return res.json({success:{
       data: path.relative(root, p),
       message: 'Successfully download'
     }});
+
+  }, (err) => {
+    return res.status(500).json({error: err.message});
   });
 });
 
